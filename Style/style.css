@@ -1,0 +1,478 @@
+body{
+    user-select: none;
+}
+.container {
+    display: flex;
+    font-family:Comic Sans MS, Comic Sans, cursive;
+    height:100vh;
+    
+}
+
+.sidebarDoar {
+    flex: 1;
+    background-color:#FFAB0A;
+    top: 0;
+    padding: 2%;
+    margin:1px;
+    height: 100%;
+    text-align: center;
+    overflow:auto; /*permite rolagem quando o conteudo passar da tela*/
+    color:white;
+}
+.sidebarTransportar {
+    flex: 1;
+    top:0;
+    background-color: #087095;
+    padding: 2%;
+    margin:1px;
+    height: 100%;
+    text-align: center;
+    overflow:auto; /*permite rolagem quando o conteudo passar da tela*/
+    color:white;
+}
+.content {
+    flex: 2;
+    position: relative;
+    padding: 0.1%;
+    text-align: center;
+    overflow:auto; /*permite rolagem quando o conteudo passar da tela*/
+    
+}
+.content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/logo.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 15%; /* Define a opacidade da imagem de fundo */
+}
+
+.content-text {
+    position: relative; /* Mantém o texto na posição original */
+    z-index: 1; /* Mantém o texto sobre o pseudo-elemento */
+}
+.titulo{
+    font-size:35pt;
+  
+
+}
+.motivo{
+    line-height:1.6;
+    font-size: 15pt;
+    padding: 2%;
+}
+.btn_doar{
+    background-color:transparent;
+    border:none;
+    cursor:pointer;
+    padding:0;
+   
+}
+.btn_doar img{
+    
+    width: 90%;
+    height: 90%;
+
+}
+.btn_doar img:hover{
+    
+    width: 100%;
+    height: 100%;
+
+}
+.btn_transportar{
+    background-color:transparent;
+    border:none;
+    cursor:pointer;
+    padding:0;
+   
+}
+.btn_transportar img{
+    
+    width: 90%;
+    height: 90%;
+
+}
+.btn_transportar img:hover{
+    
+    width: 100%;
+    height: 100%;
+
+}
+.btn_doacao{
+    position:relative;
+}
+
+.close_btn_d{
+    background-color:transparent;
+    text-decoration: none;
+    border-style: none;
+    position: absolute;
+    color: white;
+    cursor: pointer;
+    font-size: 25pt;
+    top: 0%;
+    left: 3%;
+    z-index: 999;
+}
+.close_btn_d:hover{
+    border-style: none;
+    position: absolute;
+    color: red;
+    cursor: pointer;
+    font-size: 30pt;
+    top: 0%;
+    left: 3%;
+}
+.close_btn{
+    background-color:#087095;
+    padding: 0.5%;
+    text-decoration: none;
+    border-style: none;
+    position: fixed;
+    color: white;
+    cursor: pointer;
+    font-size: 25pt;
+    top: 0%;
+    right: 3%;
+    z-index: 999;
+
+}
+.close_btn:hover{
+    background-color:#087095;
+    padding: 0.5;
+    border-style: none;
+    position: fixed;
+    color: red;
+    cursor: pointer;
+    font-size: 30pt;
+    top: 0%;
+    right: 3%;
+}
+.close_btn_t{
+    background-color:transparent;
+    border-style: none;
+    position: absolute;
+    color: white;
+    cursor: pointer;
+    font-size: 25pt;
+    top: 2%;
+    right: 3%;
+}
+.close_btn_t:hover{
+    border-style: none;
+    position: absolute;
+    color: red;
+    cursor: pointer;
+    font-size: 30pt;
+    top: 2%;
+    right: 3%;
+
+}
+
+
+.overlay_doar{
+    display: none;
+    align-content: right;
+    position:fixed;
+    top:0;
+    left:27%;
+    width: 80%;
+    height: 100%;
+    margin: 0.3%;
+    background-color:rgba(255, 169, 10, 0.986);
+    padding:0.2%;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.overlay_transportar{
+  
+    display:none;
+    align-content: right;
+    position:fixed;
+    top:0;
+    right:27%;
+    width: 80%;
+    height: 100%;
+    background-color:rgba(8, 111, 149, 0.986);
+    padding:o.2%;
+    z-index: 999;
+    overflow-y: auto;  
+}
+.overlay_doacao{
+    padding-top:2%;
+    display:none;
+    align-content: right;
+    position:fixed;
+    top:0;
+    left:27%;
+    width: 80%;
+    height: 100%;
+    margin: 0.6%;
+    background-color:#087095;
+    z-index: 998;
+    overflow-y: auto;
+}
+.overlay_escolher{
+    display:none;
+    align-content: right;
+    position:fixed;
+    top:0;
+    right:27%;
+    width: 80%;
+    height: 100%;
+    margin: 0.6%;
+    background-color:#FFAB0A;
+    padding:0.2%;
+    z-index: 999;
+    overflow-y: auto;
+    text-align: center;
+
+}
+
+.form_doacao {
+    padding-top:2%;
+    /* Adiciona espaço interno para os campos */
+    text-align: center;
+}
+
+.form {
+    display: block; /* Coloca cada rótulo em uma linha separada */
+    padding-bottom: 0.5%; /* Adiciona espaço abaixo de cada rótulo */
+}
+.perfil{
+    display: inline-block;
+    padding: 1%;
+}
+.perfil label{
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    border-radius:50%;
+    border: 2px solid #ddd;
+    background-image:url("../img/perfil.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.perfil label:hover{
+    width: 80px;
+    height: 80px;
+}
+input{
+       height: 30px;
+       margin-bottom: 2%;
+}
+input[type="file"]{
+    display: none;
+    
+
+}
+.telas_doacao{
+    position: fixed;
+    height: auto;
+    max-width: 71%;
+    width: 71%;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    top: 0;
+    background-color:#FFAB0A;
+    justify-content: space-between; /* Distribui os itens igualmente */
+    text-align: center;
+}
+.telas_doacao a {
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    text-decoration: none;
+    right:40;
+    font-size: 25px;
+    color: white;
+    display: inline-block;
+    width: calc(30%); /* 50% do espaço menos o espaçamento */
+}
+
+
+.telas_doacao a:hover {
+    background-color:rgb(250,73,84);
+    border: 7px solid black
+}
+
+.telas_doacao a.active {
+    background-color:#087095;
+}
+.telas_transporte{
+    padding-top: 0.8%;
+    z-index: 998;
+    height: auto;
+    top: 0;
+    left:0;
+    width: 71%;
+    position: fixed;
+    top: 0;
+    background-color:#087095;
+    justify-content: space-between; /* Distribui os itens igualmente */
+    text-align: center;
+    margin-bottom: 5%;
+  
+    
+}
+.nao{
+    text-align:center;
+    color:black;
+}
+
+.telas_transporte a {
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: inline-block;
+    width: calc(30%); /* 50% do espaço menos o espaçamento */
+    
+}
+
+
+.telas_transporte a:hover {
+    background-color:rgba(255, 255, 255, 0.733);
+    border: 5px solid black
+}
+
+.telas_transporte a.active {
+    background-color:#FFAB0A;
+}
+.cadastradas {
+    margin-right: 8%;
+    padding: 0.5%;
+    text-align: center; 
+    background-color: #fdfdfdd2; 
+    color: #087095; 
+    margin-bottom: 0.1%;
+    z-index: 999 ;
+}
+
+.cadastradas:hover {
+    background-color: #fdfdfd; 
+    padding: 0.5%;
+    text-align: center; 
+    color: #087095; 
+    margin-bottom: 0.1%; 
+    cursor: pointer;
+}
+
+
+.escolher{
+    padding: 0.5%;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 5%;
+    background-color:#fdfdfdd2;
+    color:#087095;
+    margin-bottom: 0.1%;
+    
+}
+
+.escolher:hover{
+    background-color:#fdfdfd;
+    padding: 0.5%;
+    text-align: center;
+    margin-right: 0%;
+    margin-left: 10%;
+    color:#087095;
+    margin-bottom: 0.1%;
+    cursor: pointer;
+
+}
+    
+   
+.opcoes{
+    width: auto;
+    padding: 1%;
+    margin: auto;
+    
+    
+    
+}
+.opcoes span{
+    color:black;
+    margin-top: 30px;
+    font-size: 35pt;
+   
+}
+.btn_escolher{
+    background-color:transparent;
+    border:none;
+    cursor:pointer;
+    
+}
+.btn_confirmar{
+    position: fixed;
+    z-index:1000;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    overflow: auto;
+    background-color:#ffffff6e;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15%;
+}
+
+.overlay_transportar{
+  
+    display:none;
+    align-content: right;
+    position:fixed;
+    top:0;
+    right:27%;
+    width: 80%;
+    height: 100%;
+    background-color:rgba(8, 111, 149, 0.986);
+    padding:o.2%;
+    z-index: 999;
+    overflow-y: auto;
+
+
+    
+}
+
+.btnCad{
+    background-color:rgba(8, 111, 149, 0.986);
+    margin: 0%;
+    padding: 1%;
+    color:#ddd;
+    border:6px solid black;
+}
+.btnNao{
+    background-color:rgba(8, 111, 149, 0.986);
+    margin: 0%;
+    padding: 1%;
+    color:#ddd;
+    border:6px solid black;
+}
+.btnNao:hover{
+    width: 12%;
+    background-color:#ff0505;
+    color:#ffffff
+    
+}
+
+
+.btnCad:hover{
+    width: 12%;
+    background-color:#05ff43;
+    color:#087095
+    
+}
+
