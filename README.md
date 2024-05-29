@@ -1,7 +1,7 @@
 
 # Projeto Elo Amor
 
-Aqui, unem-se os doadores de qualquer item, com voluntarios que se disponham a buscar o item no endereço do doador, e leva-lo até a ONG.
+Aqui, Unem-se os doadores de qualquer item, com voluntarios que se disponham a buscar o item no endereço do doador, e leva-lo até a ONG.
 -------------------------------------------------------
 As ongs Fazem um trabalho extraordinario, ajudando dezenas de familias por todo o mundo, dependendo quase que 100% de solidariedade e voluntarialismo.
 
@@ -9,7 +9,7 @@ Pensando nisso, Desenvolvi uma página web capaz de inpucionar o solidariarismo.
 
 foi toda desenvolvida para ser de facil uso, e de entendimento para o usuario, completamente User friendly
 
-![alt text](/img/tela_inicial.png)
+![alt text](img/tela_inicial.png)
 
 
 
