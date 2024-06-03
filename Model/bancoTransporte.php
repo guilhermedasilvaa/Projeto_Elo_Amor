@@ -22,7 +22,16 @@ function loginTransporte($conexao, $teltransporte){
 }
 
 function escolherDoacao($conexao){
-    $query = "SELECT d.nome_doador, d.tel_doador, d.endereco_doador,t.nome_transporte, doa.* from tb_doacao as doa join tb_doador as d on doa.cod_transporte is null join tb_transporte as t where doa.cod_doador = d.cod_doador";
+    $data_atual =date('Y-m-d');
+    $query = "SELECT d.nome_doador, d.tel_doador, d.endereco_doador, t.nome_transporte, doa.* 
+    FROM tb_doacao as doa 
+    JOIN tb_doador as d 
+    ON doa.cod_doador = d.cod_doador 
+    LEFT JOIN tb_transporte as t 
+    ON doa.cod_transporte = t.cod_transporte 
+    WHERE doa.cod_transporte IS NULL
+    and doa.data_doacao >= CURRENT_DATE";
+   
     $result = mysqli_query($conexao, $query)or die (mysqli_error($conexao));
 
     if(mysqli_num_rows($result)>0){

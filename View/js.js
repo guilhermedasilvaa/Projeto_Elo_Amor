@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var escolherDivs = document.querySelectorAll('.escolher');
 
+    var divDoacoes = document.querySelectorAll('.cadastradas');
+
 
 
     cancelarBtns.forEach(function(btn){
@@ -43,6 +45,19 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     });
 
+    divDoacoes.forEach(function(divDoacao){
+        divDoacao.addEventListener('click',function(){
+            var formId = divDoacao.getAttribute('data-form-id');
+            var btnConfirmar = divDoacao.querySelector('.btn_confirmar');
+            btnConfirmar.style.display="block";
+
+            btnConfirmar.addEventListener('click', function(){
+                var form = document.getElementById(formId);
+                form.submit();
+            });
+
+        });
+    });
 
     btnDoar.addEventListener('click', function(){
         overlayD.style.display = 'block';

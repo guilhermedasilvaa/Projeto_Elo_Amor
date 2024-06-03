@@ -1,3 +1,4 @@
+
 body{
     user-select: none;
 }
@@ -5,30 +6,38 @@ body{
     display: flex;
     font-family:Comic Sans MS, Comic Sans, cursive;
     height:100vh;
+    position: fixed;
     
 }
 
 .sidebarDoar {
-    flex: 1;
+    flex:1;
     background-color:#FFAB0A;
     top: 0;
     padding: 2%;
-    margin:1px;
-    height: 100%;
+    height: 89%;
     text-align: center;
-    overflow:auto; /*permite rolagem quando o conteudo passar da tela*/
     color:white;
+    
 }
 .sidebarTransportar {
-    flex: 1;
+    flex:1;
     top:0;
-    background-color: #087095;
+    background-color:#087095;
     padding: 2%;
-    margin:1px;
-    height: 100%;
+    height: 89%;
     text-align: center;
-    overflow:auto; /*permite rolagem quando o conteudo passar da tela*/
+    color:white; 
+}
+.sidebarTransportar p{
     color:white;
+    font-size:x-large;
+ 
+}
+.sidebarDoar p{
+    color:white;
+    font-size:x-large;
+ 
 }
 .content {
     flex: 2;
@@ -36,19 +45,28 @@ body{
     padding: 0.1%;
     text-align: center;
     overflow:auto; /*permite rolagem quando o conteudo passar da tela*/
+    font-size: x-large;
     
 }
-.content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../img/logo.png");
-    background-size: cover;
-    background-position: center;
-    opacity: 15%; /* Define a opacidade da imagem de fundo */
+.content h1{
+    font-family: "Jersey 25 Charted", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60pt;
+}
+.content p{
+    font-size: 22pt;
+    font-weight: bold;
+    text-transform:initial
+}
+.marcadagua{
+    position: fixed;
+    height: 10%;
+    right: 10%;
+    bottom:0%;
+    right: 0%;
+    opacity: 0.70;
+    z-index: 1000;
 }
 
 .content-text {
@@ -66,41 +84,48 @@ body{
     padding: 2%;
 }
 .btn_doar{
-    background-color:transparent;
+    background-color:white;
     border:none;
     cursor:pointer;
-    padding:0;
+    padding:2%;
+    display: inline-block;
+    width: 55%;
+    height: 30%;
+    border-radius:50%;
+    border: 3px solid #ddd;
+    background-image:url("../img/acao_doar.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    overflow: hidden;
    
 }
-.btn_doar img{
-    
-    width: 90%;
-    height: 90%;
 
+.btn_doar:hover{
+    width: 60%;
+    height: 35%;
 }
-.btn_doar img:hover{
-    
-    width: 100%;
-    height: 100%;
 
-}
 .btn_transportar{
-    background-color:transparent;
+    background-color:white;
     border:none;
     cursor:pointer;
-    padding:0;
+    display: inline-block;
+    width: 90%;
+    height: 27%;
+    border-radius:10%;
+    border: 3px solid #ddd;
+    background-image:url("../img/acao_transportar.png");
+    background-size:cover;
+    background-position:right;
+    background-repeat:no-repeat;
+    overflow: hidden;
    
 }
-.btn_transportar img{
-    
-    width: 90%;
-    height: 90%;
 
-}
-.btn_transportar img:hover{
-    
-    width: 100%;
-    height: 100%;
+.btn_transportar:hover{
+    width: 95%;
+    height: 29%;
 
 }
 .btn_doacao{
@@ -108,25 +133,26 @@ body{
 }
 
 .close_btn_d{
-    background-color:transparent;
+    border-radius:20%;
+    padding: 0.5%;
     text-decoration: none;
     border-style: none;
-    position: absolute;
+    position: fixed;
     color: white;
     cursor: pointer;
-    font-size: 25pt;
+    font-size: 30pt;
+    left:28%;
     top: 0%;
-    left: 3%;
-    z-index: 999;
+    z-index: 998;
 }
 .close_btn_d:hover{
     border-style: none;
-    position: absolute;
+    position: fixed;
     color: red;
     cursor: pointer;
     font-size: 30pt;
     top: 0%;
-    left: 3%;
+    left: 28%;
 }
 .close_btn{
     background-color:#087095;
@@ -180,7 +206,7 @@ body{
     align-content: right;
     position:fixed;
     top:0;
-    left:27%;
+    left:27.5%;
     width: 80%;
     height: 100%;
     margin: 0.3%;
@@ -190,45 +216,51 @@ body{
     overflow-y: auto;
 }
 
-.overlay_transportar{
-  
-    display:none;
-    align-content: right;
-    position:fixed;
-    top:0;
-    right:27%;
-    width: 80%;
-    height: 100%;
-    background-color:rgba(8, 111, 149, 0.986);
-    padding:o.2%;
-    z-index: 999;
-    overflow-y: auto;  
+
+.grid_doacoes{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content:space-around;
+    margin: 2%;
 }
+.grid_doacoes .escolher{
+   /* Espaçamento entre os itens */
+    margin: 0.5%;
+    flex: 1 1 30%;
+    text-align: center;
+    border: 5px solid black;
+    background-color: #ffffff;
+    color: #087095;
+}
+.grid_doacoes .escolher:hover{
+    /* Espaçamento entre os itens */
+    border:0px;
+
+ }
 .overlay_doacao{
-    padding-top:2%;
-    display:none;
-    align-content: right;
+    text-align: center;
+    padding: 1%;
     position:fixed;
     top:0;
-    left:27%;
-    width: 80%;
+    right: 0%;
+    width: 70%;
     height: 100%;
-    margin: 0.6%;
     background-color:#087095;
-    z-index: 998;
-    overflow-y: auto;
+    z-index: 999;
+    overflow-y:auto;
+    
 }
+
 .overlay_escolher{
-    display:none;
+
     align-content: right;
     position:fixed;
     top:0;
-    right:27%;
-    width: 80%;
+    width: 73%;
+    left:0%;
     height: 100%;
-    margin: 0.6%;
     background-color:#FFAB0A;
-    padding:0.2%;
     z-index: 999;
     overflow-y: auto;
     text-align: center;
@@ -272,14 +304,12 @@ input{
 }
 input[type="file"]{
     display: none;
-    
-
 }
 .telas_doacao{
+    width: 70vw;
+    right: 0%;
     position: fixed;
     height: auto;
-    max-width: 71%;
-    width: 71%;
     padding-top: 1%;
     padding-left: 1%;
     padding-right: 1%;
@@ -289,21 +319,17 @@ input[type="file"]{
     text-align: center;
 }
 .telas_doacao a {
-    padding-top: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
+   
     text-decoration: none;
-    right:40;
     font-size: 25px;
     color: white;
     display: inline-block;
-    width: calc(30%); /* 50% do espaço menos o espaçamento */
+    width: calc(50% - 50px); /* 50% do espaço menos o espaçamento */
 }
-
 
 .telas_doacao a:hover {
     background-color:rgb(250,73,84);
-    border: 7px solid black
+    border: 3px solid black
 }
 
 .telas_doacao a.active {
@@ -351,62 +377,19 @@ input[type="file"]{
 .telas_transporte a.active {
     background-color:#FFAB0A;
 }
-.cadastradas {
-    margin-right: 8%;
-    padding: 0.5%;
-    text-align: center; 
-    background-color: #fdfdfdd2; 
-    color: #087095; 
-    margin-bottom: 0.1%;
-    z-index: 999 ;
-}
-
-.cadastradas:hover {
-    background-color: #fdfdfd; 
-    padding: 0.5%;
-    text-align: center; 
-    color: #087095; 
-    margin-bottom: 0.1%; 
-    cursor: pointer;
-}
-
-
-.escolher{
-    padding: 0.5%;
-    text-align: center;
-    margin-left: 15%;
-    margin-right: 5%;
-    background-color:#fdfdfdd2;
-    color:#087095;
-    margin-bottom: 0.1%;
-    
-}
-
-.escolher:hover{
-    background-color:#fdfdfd;
-    padding: 0.5%;
-    text-align: center;
-    margin-right: 0%;
-    margin-left: 10%;
-    color:#087095;
-    margin-bottom: 0.1%;
-    cursor: pointer;
-
-}
     
    
 .opcoes{
     width: auto;
     padding: 1%;
     margin: auto;
-    
-    
-    
+    font-size: 15pt;
+     
 }
 .opcoes span{
     color:black;
     margin-top: 30px;
-    font-size: 35pt;
+    font-size: 25pt;
    
 }
 .btn_escolher{
@@ -416,23 +399,28 @@ input[type="file"]{
     
 }
 .btn_confirmar{
-    position: fixed;
+    position:fixed;
     z-index:1000;
-    top:0;
-    left:0;
-    width:100%;
-    height: 100%;
+    width:70%;
+    height: 70%;
     overflow: auto;
-    background-color:#ffffff6e;
+    text-align: center;
+    background-color:white;
+    border:5px solid black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Flexbox para centralizar o conteúdo interno */
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 15%;
 }
 
+
 .overlay_transportar{
-  
     display:none;
-    align-content: right;
+    text-align: center;
     position:fixed;
     top:0;
     right:27%;
