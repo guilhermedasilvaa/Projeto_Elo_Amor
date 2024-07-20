@@ -1,0 +1,571 @@
+
+*{
+    margin: 0;    /*formata o css para todo tipo de navegador*/
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    user-select: none;
+}
+.container {
+    display: flex;
+    font-family:Comic Sans MS, Comic Sans, cursive;
+    height:100vh;
+    position: fixed;
+
+}
+
+.sidebarDoar {
+    flex:1;
+    background-color:#FFAB0A;
+    top: 0;
+    padding: 2%;
+    height: 89%;
+    text-align: center;
+    color:white;
+
+}
+.sidebarTransportar {
+    flex:1;
+    top:0;
+    background-color:#087095;
+    padding: 2%;
+    height: 89%;
+    text-align: center;
+    color:white;
+}
+.sidebarTransportar p{
+    color:white;
+    font-size:x-large;
+
+}
+.sidebarDoar p{
+    color:white;
+    font-size:x-large;
+
+}
+.content {
+    flex: 2;
+    position: relative;
+    padding: 0.1%;
+    text-align: center;
+    overflow:auto; /*permite rolagem quando o conteudo passar da tela*/
+    font-size: x-large;
+
+}
+.content h1{
+    font-family: "Jersey 25 Charted", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60pt;
+}
+.content p{
+    font-size: 22pt;
+    font-weight: bold;
+    text-transform:initial
+}
+.marcadagua{
+    position: fixed;
+    height: 10%;
+    right: 10%;
+    bottom:0%;
+    right: 0%;
+    opacity: 0.70;
+    z-index: 1000;
+}
+
+.content-text {
+    position: relative; /* Mantém o texto na posição original */
+    z-index: 1; /* Mantém o texto sobre o pseudo-elemento */
+}
+.titulo{
+    font-size:35pt;
+
+
+}
+.motivo{
+    line-height:1.6;
+    font-size: 15pt;
+    padding: 2%;
+}
+.btn_doar{
+    background-color:white;
+    border:none;
+    cursor:pointer;
+    padding:2%;
+    display: inline-block;
+    width: 55%;
+    height: 30%;
+    border-radius:50%;
+    border: 3px solid #ddd;
+    background-image:url("../img/acao_doacao.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+}
+
+.btn_doar:hover{
+    width: 60%;
+    height: 35%;
+}
+
+.btn_transportar{
+    background-color:white;
+    border:none;
+    cursor:pointer;
+    display: inline-block;
+    width: 90%;
+    height: 27%;
+    border-radius:10%;
+    border: 3px solid #ddd;
+    background-image:url("../img/acao_transporte.png");
+    background-size:cover;
+    background-position:right;
+    background-repeat:no-repeat;
+    overflow: hidden;
+
+}
+
+.btn_transportar:hover{
+    width: 95%;
+    height: 29%;
+
+}
+.btn_doacao{
+    position:relative;
+}
+
+.close_btn_d{
+    border-radius:20%;
+    padding: 0.5%;
+    text-decoration: none;
+    border-style: none;
+    position: fixed;
+    color: white;
+    cursor: pointer;
+    font-size: 30pt;
+    left:28%;
+    top: 0%;
+    z-index: 998;
+}
+.close_btn_d:hover{
+    border-style: none;
+    position: fixed;
+    color: red;
+    cursor: pointer;
+    font-size: 30pt;
+    top: 0%;
+    left: 28%;
+}
+.close_btn{
+    background-color:#087095;
+    padding: 0.5%;
+    text-decoration: none;
+    border-style: none;
+    position: fixed;
+    color: white;
+    cursor: pointer;
+    font-size: 25pt;
+    top: 0%;
+    right: 3%;
+    z-index: 999;
+
+}
+.close_btn:hover{
+    background-color:#087095;
+    padding: 0.5;
+    border-style: none;
+    position: fixed;
+    color: red;
+    cursor: pointer;
+    font-size: 30pt;
+    top: 0%;
+    right: 3%;
+}
+.close_btn_t{
+    background-color:transparent;
+    border-style: none;
+    position: absolute;
+    color: white;
+    cursor: pointer;
+    font-size: 25pt;
+    top: 2%;
+    right: 3%;
+}
+.close_btn_t:hover{
+    border-style: none;
+    position: absolute;
+    color: red;
+    cursor: pointer;
+    font-size: 30pt;
+    top: 2%;
+    right: 3%;
+
+}
+
+
+.overlay_doar{
+    text-align: center;
+    color:white;
+    display: none;
+    align-content: right;
+    position:fixed;
+    top:0;
+    left:27.5%;
+    width: 80%;
+    height: 100%;
+    margin: 0.3%;
+    background-color:rgba(255, 169, 10, 0.986);
+    padding:0.2%;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+
+.grid_doacoes{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    justify-content:space-around;
+    margin: 2%;
+}
+.grid_doacoes .escolher{
+   /* Espaçamento entre os itens */
+    margin: 0.5%;
+    flex: 1 1 30%;
+    text-align: center;
+    border: 5px solid black;
+    background-color: #ffffff;
+    color: #087095;
+}
+.grid_doacoes .escolher:hover{
+    /* Espaçamento entre os itens */
+    border:0px;
+
+ }
+.overlay_doacao{
+    text-align: center;
+    padding: 1%;
+    position:fixed;
+    top:0;
+    right: 0%;
+    width: 70%;
+    height: 100%;
+    background-color:#087095;
+    z-index: 999;
+    overflow-y:auto;
+
+}
+
+.overlay_escolher{
+
+    align-content: right;
+    position:fixed;
+    top:0;
+    width: 73%;
+    left:0%;
+    height: 100%;
+    background-color:#FFAB0A;
+    z-index: 999;
+    overflow-y: auto;
+    text-align: center;
+
+}
+
+.form_doacao {
+    padding-top:2%;
+    /* Adiciona espaço interno para os campos */
+    text-align: center;
+}
+
+.form {
+    display: block; /* Coloca cada rótulo em uma linha separada */
+    padding-bottom: 0.5%; /* Adiciona espaço abaixo de cada rótulo */
+}
+.perfil{
+    display: inline-block;
+    padding: 1%;
+}
+.perfil label{
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    border-radius:50%;
+    border: 2px solid #ddd;
+    background-image:url("../img/perfil.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.perfil label:hover{
+    width: 80px;
+    height: 80px;
+}
+input{
+       height: 30px;
+       margin-bottom: 2%;
+}
+input[type="file"]{
+    display: none;
+}
+.telas_doacao{
+    width: 70vw;
+    right: 0%;
+    position: fixed;
+    height: auto;
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    top: 0;
+    background-color:#FFAB0A;
+    justify-content: space-between; /* Distribui os itens igualmente */
+    text-align: center;
+}
+.telas_doacao a {
+
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: inline-block;
+    width: calc(50% - 50px); /* 50% do espaço menos o espaçamento */
+}
+
+.telas_doacao a:hover {
+    background-color:rgb(250,73,84);
+    border: 3px solid black
+}
+
+.telas_doacao a.active {
+    background-color:#087095;
+}
+.telas_transporte{
+    padding-top: 0.8%;
+    z-index: 998;
+    height: auto;
+    top: 0;
+    left:0;
+    width: 71%;
+    position: fixed;
+    top: 0;
+    background-color:#087095;
+    justify-content: space-between; /* Distribui os itens igualmente */
+    text-align: center;
+    margin-bottom: 5%;
+
+
+}
+.nao{
+    text-align:center;
+    color:black;
+}
+
+.telas_transporte a {
+    padding-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: inline-block;
+    width: calc(30%); /* 50% do espaço menos o espaçamento */
+
+}
+
+
+.telas_transporte a:hover {
+    background-color:rgba(255, 255, 255, 0.733);
+    border: 5px solid black
+}
+
+.telas_transporte a.active {
+    background-color:#FFAB0A;
+}
+
+
+.opcoes{
+    width: auto;
+    padding: 1%;
+    margin: auto;
+    font-size: 15pt;
+
+}
+.opcoes span{
+    color:black;
+    margin-top: 30px;
+    font-size: 25pt;
+
+}
+.btn_escolher{
+    background-color:transparent;
+    border:none;
+    cursor:pointer;
+
+}
+.btn_confirmar{
+    position:fixed;
+    z-index:1000;
+    width:70%;
+    height: 70%;
+    overflow: auto;
+    text-align: center;
+    background-color:white;
+    border:5px solid black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Flexbox para centralizar o conteúdo interno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.overlay_transportar{
+    display:none;
+    text-align: center;
+    position:fixed;
+    top:0;
+    right:27%;
+    width: 80%;
+    height: 100%;
+    background-color:rgba(8, 111, 149, 0.986);
+    padding:o.2%;
+    z-index: 999;
+    overflow-y: auto;
+
+
+
+}
+
+.btnCad{
+    background-color:rgba(8, 111, 149, 0.986);
+    margin: 0%;
+    padding: 1%;
+    color:#ddd;
+    border:6px solid black;
+}
+.btnNao{
+    background-color:rgba(8, 111, 149, 0.986);
+    margin: 0%;
+    padding: 1%;
+    color:#ddd;
+    border:6px solid black;
+}
+.btnNao:hover{
+    width: 12%;
+    background-color:#ff0505;
+    color:#ffffff
+
+}
+
+
+.btnCad:hover{
+    width: 15%;
+    background-color:#05ff43;
+    color:#087095
+
+}
+/*estilo login*/
+
+.containerlogin {
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+    width: 120vh;
+    height: 100%;
+    justify-content: space-between;
+    align-items: content;
+    position: center;
+    display: flex;
+    max-width: 1200px;
+}
+
+.login{
+
+    text-align: center;
+    height:50vh;
+    width:40vh;
+    background-color:#FFAB0A; /* Altere conforme necessário */
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 10px;
+}
+.login input{
+    padding: 1%;
+    border:none;
+}
+.apresentacao {
+    color:#FFAB0A;
+    background-color:#087095;
+    font-family: Arial, Helvetica, sans-serif;
+
+    height:50vh;
+    width:40vh;
+
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin: 10px;
+
+
+}
+.containerlogin h1{
+
+    font-family: reklamescriptw00-medium, cursive, Arial, Helvetica, sans-serif;
+    font-size: 35pt;
+    font-weight: bold;
+    -webkit-text-stroke: 1px #FFAB0A; /* Largura e cor da borda */
+
+}
+.containerlogin p{
+    text-align: center;
+    position:unset;
+    color:white;
+    font-size: 17pt;}
+.containerlogin span{
+    font-family: reklamescriptw00-medium, cursive, Arial, Helvetica, sans-serif;
+    font-size: 20pt;
+
+
+
+
+
+
+}
+
+@media (min-width: 769px) {
+    .containerlogin {
+        margin-top: 10%;
+
+}}
+
+/* Estilo para telas menores */
+@media (max-width: 768px) {
+    .containerlogin {
+        flex-direction: column;
+        height: 100vh; /* Garante que a altura seja 100% da visualização */
+}
+.login {
+    flex: 1 1 50%;
+    max-width: 100%;
+    height: 70vh; /* Cada div ocupa metade da altura da tela */
+    /* Remove a margem para garantir que as divs preencham a tela */
+    border-radius: 0; /* Remove o border-radius para que as divs se alinhem perfeitamente */
+}
+.apresentacao {
+    flex: 1 1 50%;
+    max-width: 100%;
+    height: 30vh; /* Cada div ocupa metade da altura da tela */
+    /* Remove a margem para garantir que as divs preencham a tela */
+    border-radius: 25; /* Remove o border-radius para que as divs se alinhem perfeitamente */
+}
+}
