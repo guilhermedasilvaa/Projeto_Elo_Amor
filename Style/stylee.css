@@ -20,7 +20,7 @@ body{
     background-color:#FFAB0A;
     top: 0;
     padding: 2%;
-    height: 89%;
+    height: 100%;
     text-align: center;
     color:white;
 
@@ -30,7 +30,7 @@ body{
     top:0;
     background-color:#087095;
     padding: 2%;
-    height: 89%;
+    height: 100%;
     text-align: center;
     color:white;
 }
@@ -89,17 +89,15 @@ body{
     padding: 2%;
 }
 .btn_doar{
-    background-color:white;
+    background-color:rgba(0,0,0,0);
     border:none;
     cursor:pointer;
     padding:2%;
     display: inline-block;
-    width: 55%;
-    height: 30%;
-    border-radius:50%;
-    border: 3px solid #ddd;
-    background-image:url("../img/acao_doacao.png");
-    background-size:cover;
+    width: 50%;
+    height: 50%;
+    background-image:url("../img/doacao.png");
+    background-size:contain;
     background-position:center;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -108,20 +106,18 @@ body{
 
 .btn_doar:hover{
     width: 60%;
-    height: 35%;
+    height: 65%;
 }
 
 .btn_transportar{
-    background-color:white;
+    background-color:rgba(0,0,0,0);
     border:none;
     cursor:pointer;
     display: inline-block;
-    width: 90%;
-    height: 27%;
-    border-radius:10%;
-    border: 3px solid #ddd;
-    background-image:url("../img/acao_transporte.png");
-    background-size:cover;
+    width: 50%;
+    height: 50%;
+    background-image:url("../img/transporte.png");
+    background-size:contain;
     background-position:right;
     background-repeat:no-repeat;
     overflow: hidden;
@@ -129,8 +125,8 @@ body{
 }
 
 .btn_transportar:hover{
-    width: 95%;
-    height: 29%;
+    width: 60%;
+    height: 60%;
 
 }
 .btn_doacao{
